@@ -13,16 +13,26 @@ impl State {
         }
     }
     //Adds an address and a balance to state
-    pub fn update_state(&mut self) {
-       self.ledger.insert("address1".to_string(), 1000.0);
+    pub fn update_state(&mut self, address: String, balance: f32) {
+        //if address exists, change balance of the address
+        if self.ledger.contains_key(&address) {
+            self.ledger.remove(&address);
+            self.ledger.insert(address.to_string(), balance);
+            println!("Hello");
+        }
+        else {
+            //if address doesn't exist add address and balance
+            self.ledger.insert(address.to_string(), balance);
+        }
+        
     }
 }
 
-fn main() {
-    let mut state = State::new();
-    state.update_state();
+// fn main() {
+//     let mut state = State::new();
+//     state.update_state();
     
-    println!("{}", state.ledger["address1"]);
+//     println!("{}", state.ledger["address1"]);
     
     
-}
+// }
