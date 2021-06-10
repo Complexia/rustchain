@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-//Holds all of the state data
+//Holds all of the state data. To be replaced by a Merkle Tree
 pub struct State {
     pub ledger: HashMap<String, f32>
 }
